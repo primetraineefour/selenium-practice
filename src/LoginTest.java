@@ -23,17 +23,21 @@ public class LoginTest extends BaseTest {
     public void verifyUserShouldNavigateToLoginPageSuccessfully() {
 
         // Finding the login link element and click on login link element
-        WebElement loginLink = driver.findElement(By.linkText("Log in"));
-        loginLink.click();
+        /*WebElement loginLink = driver.findElement(By.linkText("Log in"));
+        loginLink.click();*/
+        clickOnElement(By.linkText("Log in"));
+
 
         // This is expected text from Requirement
         String expectedMessage = "Welcome, Please Sign In!";
 
-        // Finding the Welcome text element
+        /*// Finding the Welcome text element
         WebElement message = driver.findElement(By.xpath("//h1[contains(text(), 'Welcome, Please Sign In!')]"));
 
         // Get text from Welcome text element from web site
-        String actualMessage = message.getText();
+        String actualMessage = message.getText();*/
+
+        String actualMessage = getTextFromElement(By.xpath("//h1[contains(text(), 'Welcome, Please Sign In!')]"));
 
         // verifying actualText and expectedText
         Assert.assertEquals(expectedMessage, actualMessage);
@@ -43,8 +47,9 @@ public class LoginTest extends BaseTest {
     @Test
     public void verifyErrorMessageWhenWrongUserNameIsEntered() throws InterruptedException {
         // Finding the login link element and click on login link element
-        WebElement loginLink = driver.findElement(By.linkText("Log in"));
-        loginLink.click();
+        /*WebElement loginLink = driver.findElement(By.linkText("Log in"));
+        loginLink.click();*/
+        clickOnElement(By.linkText("Log in"));
 
         // Thread.slip method used for hold execution
         Thread.sleep(1000);
@@ -54,6 +59,8 @@ public class LoginTest extends BaseTest {
 
         // Send email address to emailField element
         emailField.sendKeys("abc@gmail.com");
+
+        sendTextToElement(By.id("Email"),"abc@gmail.com");
 
         // Finding the passwordField element
         WebElement passwordField = driver.findElement(By.name("Password"));

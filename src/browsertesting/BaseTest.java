@@ -2,18 +2,16 @@ package browsertesting;
 
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import utility.Utility;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Jay
  */
-public class BaseTest {
-
-    public WebDriver driver;
+public class BaseTest extends Utility {
 
     public void openBrowser(String baseUrl){
         System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
